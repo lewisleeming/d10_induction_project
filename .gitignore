@@ -5,6 +5,13 @@
 # follows official upstream conventions:
 # https://www.drupal.org/docs/develop/using-composer
 
+# Ignore corei and contrib when managing all of a project's dependencies with Composer
+# including Drupal core.
+/web/core
+/web/modules/contrib/*
+/web/themes/contrib/*
+/web/profiles/contrib/*
+.idea
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
