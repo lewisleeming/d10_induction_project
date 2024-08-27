@@ -47,7 +47,6 @@ final class VehicleLookupService {
   public function getNodeTitle($node_id){
     $node = $this->entityTypeManager->getStorage('node')->load($node_id);
     $title = $node->label();
-
     \Drupal::logger('vehicle_custom')->info('The following nid: @n_id was requested, and the following output returned: @n_title',[
       '@n_id' => $node_id,
       '@n_title' => $title,

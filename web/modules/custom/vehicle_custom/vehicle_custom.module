@@ -7,8 +7,8 @@
 function vehicle_custom_preprocess_node(array &$variables) {
   // Load the vehicle lookup service.
   $vehicle_lookup_service = \Drupal::service('vehicle_custom.vehicle_lookup');
-  // Get the vehicle title by node ID.
+  // Get vehicle title by node ID.
   $vehicle_title = $vehicle_lookup_service->getNodeTitle(3);
-  // Add the vehicle title to the template variables.
+  // Add vehicle title to template variables.
   $variables['vehicle_title'] = $vehicle_title;
 }
