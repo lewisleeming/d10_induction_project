@@ -1,0 +1,7 @@
+services:
+  vehicle_custom.vehicle_lookup:
+    class: Drupal\vehicle_custom\Service\VehicleLookupService
+    arguments: ['@entity_type.manager', '@logger.channel.vehicle_custom']
+#  logger.channel.vehicle_custom:
+#    class: Drupal\Core\Logger\LoggerChannel
+#    arguments: ['vehicle_custom']

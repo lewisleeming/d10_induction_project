@@ -1,0 +1,129 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Primary module hooks for induction_project module.
+ */
+function induction_project_preprocess_node(&$variables) {
+  //  $variables['car_title'] = $variables["node"]->label();
+  //  $variables['car_owner'] = $variables["node"]->getOwner()->label();
+  //  $variables['car_owner'] = $variables["node"]->get('field_brand')->entity->get('field_region')->value
+  $entities = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'car']);
+  $all_car_data = [];
+  foreach ($entities as $car) {
+    // Store the data in the all_car_data array.
+    $all_car_data[] = [
+      'car_title' => $car->label(),
+      'car_owner' => $car->getOwner()->label(),
+      'car_region' => !$car->get('field_brand')
+        ->isEmpty() ? $car->get('field_brand')->entity->get('field_region')->value : 'not found',
+    ];
+  }
+  $variables['all_car_data'] = $all_car_data;
+}
+//      $entities = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'ticket']);
+//      foreach ($entities as $car) {
+//        // Store the data in the all_car_data array.
+//        $all_car_data[] = [
+//          'field_ticket_labels' => $ticket->label(),
+//          'car_owner' => $car->getOwner()->label(),
+//          'car_region' => !$car->get('field_brand')
+//            ->isEmpty() ? $car->get('field_brand')->entity->get('field_region')->value : 'not found',
+//        ];
+//      }
+
+/**
+ * Preprocess paragraphs
+ */
+function induction_project_preprocess_paragraph__content_with_link(&$variables): void {
+  $variables['content_with_link_title'] = $variables["paragraph"]->get('field_title')->value;
+}
+
+function induction_project_preprocess_paragraph__multimedia(&$variables): void {
+  $variables['multimedia_title'] = $variables["paragraph"]->get('field_multimedia_title')->value;
+}
+
+function induction_project_preprocess_paragraph(&$variables): void {
+  $variables['hello_world'] = t('generic titles for paras');
+}
+
+//function node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//  var_dump($form_id);//search_block_form
+//webform_submission_contact_webform_node_11_add_form
+//}
+/**
+ * Implements hook_form_alter().
+ */
+//function node_webform_submission_contact_webform_node_11_add_form_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//  // Add your form-altering code here ...
+//  $form['actions']['submit']['#value'] = t('Comment');
+//}
+
+//doesnt work
+function induction_project_form_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  var_dump($form);
+}
+
+function induction_project_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
+  if ($form_id == 'webform_submission_contact_webform_node_11_add_form') {
+    $form['actions']['submit']['#value'] = t("let's go");
+    $form['elements']['name']['#title'] = t("_*Please enter your first name*_");
+    $form['elements']['description']['#description'] = t('Please enter some comments here!');
+    shuffle($form['elements']['what_vehicle_do_you_own']['#options']);
+    //    $form["elements"]["what_vehicle_do_you_own"]["#type"] = 'checkboxes';
+    $form['tos'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Terms of service'),
+      '#weight' => 4,
+    ];
+  }
+  if ($form_id == 'induction_project_form') {
+    //var_dump($form);
+    $form['custom_text']['#title'] = t("let's go");
+  }
+  //  var_dump($form);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function induction_project_theme() {
+  return [
+    'node__car' => [
+      'base hook' => 'node',
+    ],
+    'paragraph__multimedia' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__content_with_link' => [
+      'base hook' => 'paragraph',
+    ],
+    'vehicle_template' => [
+      'variables' => [
+        'hello_world' => NULL,
+        'vehicle_title' => t("No title provided"),
+        'authors_name' => t("No authors provided"),
+      ],
+    ],
+    'custom_field_formatter' => [
+      'variables' => [
+        'field_value' => NULL,
+      ],
+      'template' => 'custom-field-formatter',
+    ],
+  ];
+}
+
+
+//'node__hello_world' => [
+//  'base hook' => 'node',
+//],
+//    'node__vehicle_title' => [
+//  'base hook' => 'node',
+//],
+//    'node__authors_name' => [
+//  'base hook' => 'node',
+//],
+
