@@ -1,0 +1,79 @@
+uuid: 97ab6d9a-7142-4054-9f55-fcb31b664e6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.car.field_brand
+    - field.field.node.car.field_colour
+    - field.field.node.car.field_components
+    - field.field.node.car.field_mot_expiry_date
+    - field.field.node.car.field_number_of_doors
+    - field.field.node.car.field_registration_number
+    - node.type.car
+  module:
+    - color_field
+    - datetime
+    - entity_reference_revisions
+    - options
+    - user
+id: node.car.default
+targetEntityType: node
+bundle: car
+mode: default
+content:
+  field_brand:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_colour:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_mot_expiry_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_number_of_doors:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_registration_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

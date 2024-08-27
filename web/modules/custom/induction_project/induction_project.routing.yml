@@ -1,0 +1,41 @@
+induction_project.view_my_vehicle:
+  path: '/view-my-vehicle/{vehicle_nid}'
+  defaults:
+    _controller: '\Drupal\induction_project\Controller\VehicleController::viewVehicle'
+    _title: 'View Vehicle'
+    vehicle_nid: 2
+  requirements:
+    #    _permission: 'Vehicle Admin'
+    _custom_access: '\Drupal\induction_project\Controller\VehicleController::access'
+  options:
+    parameters:
+      vehicle_nid:
+        type: entity:node
+        vehicle_nid: '\d+'
+
+induction_project.vehicle_properties:
+  path: '/vehicle-properties/{vehicle_nid}'
+  defaults:
+    _controller: '\Drupal\induction_project\Controller\VehicleController::content'
+    _title: 'Vehicle Properties'
+  requirements:
+    _custom_access: '\Drupal\induction_project\Controller\VehicleController::access'
+
+induction_project.admin_settings_form:
+  path: '/admin/config/vehicle-route-config'
+  defaults:
+    _form: '\Drupal\induction_project\Form\AdminForm'
+    _title: 'Admin form controller'
+  requirements:
+    _custom_access: '\Drupal\induction_project\Controller\VehicleController::access'
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+#induction_project.custom_field_formatter:
+#  path: '/vehicle-properties/testing/one'
+#  defaults:
+#    _plugin: 'Drupal\induction_project\Plugin\Field\FieldFormatter\CustomFieldFormatter::viewElements'
+#    _title: 'Vehicle Properties'
+#  requirements:
+#    _permission: 'access content'

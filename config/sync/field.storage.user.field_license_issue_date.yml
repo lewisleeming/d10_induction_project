@@ -1,0 +1,20 @@
+uuid: 7dd315a8-9a71-4db4-9b50-eebc14ab6184
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - user
+id: user.field_license_issue_date
+field_name: field_license_issue_date
+entity_type: user
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

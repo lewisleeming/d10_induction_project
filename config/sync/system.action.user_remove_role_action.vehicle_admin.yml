@@ -1,0 +1,14 @@
+uuid: 351cf5ad-2167-4ece-8b7d-155daf45a900
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.vehicle_admin
+  module:
+    - user
+id: user_remove_role_action.vehicle_admin
+label: 'Remove the Vehicle Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: vehicle_admin

@@ -1,0 +1,34 @@
+uuid: cba598f0-0d06-4840-a512-949a0e8417d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.logo.field_any_other_information
+    - field.field.media.logo.field_media_image_1
+    - image.style.medium
+    - media.type.logo
+  module:
+    - image
+id: media.logo.media_library
+targetEntityType: media
+bundle: logo
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_any_other_information: true
+  field_media_image_1: true
+  name: true
+  uid: true

@@ -1,0 +1,15 @@
+uuid: 38810498-129a-4465-aa44-0d9fc6564b15
+langcode: en
+status: true
+dependencies: {  }
+name: logo_image_style
+label: logo_image_style
+effects:
+  25cd0fa7-8d5e-4969-ac22-b45d9bde459c:
+    uuid: 25cd0fa7-8d5e-4969-ac22-b45d9bde459c
+    id: image_scale
+    weight: 1
+    data:
+      width: 100
+      height: null
+      upscale: false
