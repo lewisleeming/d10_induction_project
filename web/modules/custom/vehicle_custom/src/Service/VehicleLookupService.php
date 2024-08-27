@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * @todo Add class description.
+ * Provides vehicle lookup services.
  */
 final class VehicleLookupService {
 
@@ -16,35 +16,43 @@ final class VehicleLookupService {
    * @var \Psr\Log\LoggerInterface
    */
   private LoggerInterface $logger;
+
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   private EntityTypeManagerInterface $entityTypeManager;
 
   /**
-   * @todo Add method description.
+   * Constructs a VehicleLookupService object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger service.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, LoggerInterface $logger) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, LoggerInterface $logger,) {
     $this->entityTypeManager = $entityTypeManager;
     $this->logger = $logger;
   }
-  public function getVehicleTitleByNid($node_id){
-    // @todo Place your code here.
+
+  /**
+   * Gets the title of the vehicle node by its node ID.
+   *
+   * @param int $node_id
+   *   The node ID.
+   *
+   * @return string
+   *   The title of the vehicle node.
+   */
+  public function getNodeTitle($node_id){
     $node = $this->entityTypeManager->getStorage('node')->load($node_id);
     $title = $node->label();
 
-    \Drupal::logger('vehicle_custom')->info('The following nid: @nodeid was requested, and the following output returned: @node_title',[
-      '@nodeid' => $node_id,
-      '@node_title' => $title,
+    \Drupal::logger('vehicle_custom')->info('The following nid: @n_id was requested, and the following output returned: @n_title',[
+      '@n_id' => $node_id,
+      '@n_title' => $title,
     ]);
-    //doesnt work
-//    $this->logger->warning('The following nid: @nodeid was requested, and the following output returned: @node_title',[
-//      '@nodeid' => $node_id,
-//      '@node_title' => $title,
-//    ]);
 
     return $title;
-
   }
-
 }
