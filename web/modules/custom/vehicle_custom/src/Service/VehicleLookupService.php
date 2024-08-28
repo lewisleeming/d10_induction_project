@@ -35,18 +35,11 @@ final class VehicleLookupService {
     $this->logger = $logger;
   }
 
-  /**
-   * Gets the title of the vehicle node by its node ID.
-   *
-   * @param int $node_id
-   *   The node ID.
-   *
-   * @return string
-   *   The title of the vehicle node.
-   */
+  // Uses a node ID to get its associated title
   public function getNodeTitle($node_id){
     $node = $this->entityTypeManager->getStorage('node')->load($node_id);
     $title = $node->label();
+    // Logs the node ID and its title to admin/
     \Drupal::logger('vehicle_custom')->info('The following nid: @n_id was requested, and the following output returned: @n_title',[
       '@n_id' => $node_id,
       '@n_title' => $title,
