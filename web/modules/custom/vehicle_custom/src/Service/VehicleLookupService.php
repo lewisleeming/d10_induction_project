@@ -30,13 +30,13 @@ final class VehicleLookupService {
    * @param \Psr\Log\LoggerInterface $logger
    *   The logger service.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, LoggerInterface $logger,) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, LoggerInterface $logger) {
     $this->entityTypeManager = $entityTypeManager;
     $this->logger = $logger;
   }
 
   /**
-   * Gets the title of the vehicle node by its node ID.
+   * Gets title of vehicle node by node ID.
    *
    * @param int $node_id
    *   The node ID.
@@ -47,12 +47,11 @@ final class VehicleLookupService {
   public function getNodeTitle($node_id){
     $node = $this->entityTypeManager->getStorage('node')->load($node_id);
     $title = $node->label();
-
-    \Drupal::logger('vehicle_custom')->info('The following nid: @n_id was requested, and the following output returned: @n_title',[
+    // Log message to 'recent log messages'.
+    $this->logger->info('The following nid: @n_id was requested, and the following output returned: @n_title',[
       '@n_id' => $node_id,
       '@n_title' => $title,
     ]);
-
     return $title;
   }
 }
