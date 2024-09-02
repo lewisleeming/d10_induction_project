@@ -1,0 +1,22 @@
+uuid: ff240445-b279-425d-b03a-79ee2585726b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: car_content_type
+label: 'car content type'
+type: 'canonical_entities:node'
+pattern: '/car/[node:title]'
+selection_criteria:
+  f19ae687-054c-47da-a359-8fb6f98fa4df:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f19ae687-054c-47da-a359-8fb6f98fa4df
+    context_mapping:
+      node: node
+    bundles:
+      car: car
+selection_logic: and
+weight: -5
+relationships: {  }

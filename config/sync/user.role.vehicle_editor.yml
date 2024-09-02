@@ -1,0 +1,25 @@
+uuid: a71cfb12-e99a-4e71-b0c8-a7a3812e1695
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.car
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - node
+    - system
+    - toolbar
+id: vehicle_editor
+label: 'Vehicle Editor'
+weight: 4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access toolbar'
+  - 'create car content'
+  - 'edit any car content'
+  - 'use editorial transition archive'
+  - 'use editorial transition create_new_draft'
+  - 'view any unpublished content'
+  - 'view the administration theme'

@@ -1,0 +1,19 @@
+uuid: fafbb2dd-ea6d-411a-9143-e31aa0a5ded3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.content_with_link
+id: paragraph.content_with_link.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: content_with_link
+label: content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

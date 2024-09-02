@@ -1,0 +1,14 @@
+uuid: 6f376439-b166-4080-aa05-930e57e68819
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.vehicle_editor
+  module:
+    - user
+id: user_add_role_action.vehicle_editor
+label: 'Add the Vehicle Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: vehicle_editor

@@ -1,0 +1,32 @@
+uuid: c23355ea-8818-4c74-ad5d-990cc31b43da
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.car.field_brand
+    - field.field.node.car.field_colour
+    - field.field.node.car.field_components
+    - field.field.node.car.field_mot_expiry_date
+    - field.field.node.car.field_number_of_doors
+    - field.field.node.car.field_registration_number
+    - node.type.car
+  module:
+    - user
+id: node.car.teaser
+targetEntityType: node
+bundle: car
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_brand: true
+  field_colour: true
+  field_components: true
+  field_mot_expiry_date: true
+  field_number_of_doors: true
+  field_registration_number: true

@@ -1,0 +1,14 @@
+uuid: 711d5d3e-bee9-4685-a9e1-071dd934b997
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.vehicle_admin
+  module:
+    - user
+id: user_add_role_action.vehicle_admin
+label: 'Add the Vehicle Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: vehicle_admin

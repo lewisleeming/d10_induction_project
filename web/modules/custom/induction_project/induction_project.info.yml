@@ -1,0 +1,5 @@
+name: 'induction_project'
+type: module
+description: 'This is a basic module, and here is the description'
+package: Custom
+core_version_requirement: ^10 || ^11

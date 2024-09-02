@@ -27,6 +27,7 @@
         "drupal/gin_toolbar": "^1.0@RC",
         "drupal/paragraphs": "^1.17",
         "drupal/pathauto": "^1.13",
+        "drupal/recaptcha": "^3.4",
         "drupal/webform": "^6.2",
         "drush/drush": "^13.0"
     },

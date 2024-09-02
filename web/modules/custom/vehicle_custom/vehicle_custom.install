@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the induction_project module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function vehicle_custom_schema() {
+  $schema['vehicle_custom_table'] = [
+    'description' => 'Table of car information',
+    'fields' => [
+      'custom_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'small',
+        'not null' => TRUE,
+      ],
+      'vehicle_name' => [
+        'description' => 'Vehicle Name',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 'No Vehicle Name Given',
+      ],
+      'vehicle_colour' => [
+        'description' => 'Vehicle Colour',
+        'type' => 'varchar',
+        'length' => 24,
+        'not null' => FALSE,
+        'default' => 'No Vehicle Colour Given',
+      ],
+      'owner_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'small',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['custom_id'],
+  ];
+
+
+  return $schema;
+}

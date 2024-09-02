@@ -1,0 +1,21 @@
+uuid: fa478ff3-3698-4132-9121-75c9de39cdb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_region
+    - taxonomy.vocabulary.brands
+  module:
+    - options
+id: taxonomy_term.brands.field_region
+field_name: field_region
+entity_type: taxonomy_term
+bundle: brands
+label: Region
+description: 'Regions where brands are '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

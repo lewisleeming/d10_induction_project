@@ -1,0 +1,21 @@
+uuid: 169cbe8d-18fd-4a1a-92a5-caec6bf8642d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_doors
+    - node.type.car
+  module:
+    - options
+id: node.car.field_number_of_doors
+field_name: field_number_of_doors
+entity_type: node
+bundle: car
+label: 'car Number of doors'
+description: 'list of integers'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

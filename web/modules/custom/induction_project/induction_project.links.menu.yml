@@ -1,0 +1,6 @@
+induction_project.admin_settings_form:
+  title: 'induction project admin form'
+  route_name: induction_project.admin_settings_form # access form
+  description: 'admin form for induction project - change roles'
+  parent: system.admin_config_system
+  weight: 99

@@ -1,0 +1,20 @@
+uuid: 1fc8ab0e-c124-4d1e-8cf3-2fa6d8d9cfda
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - taxonomy
+id: taxonomy_term.field_brand_logo
+field_name: field_brand_logo
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
