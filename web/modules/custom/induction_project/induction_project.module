@@ -113,6 +113,11 @@ function induction_project_theme() {
       ],
       'template' => 'custom-field-formatter',
     ],
+    'published_theme' => [
+      'variables' => [
+        'published_text' => '',
+      ]
+    ],
   ];
 }
 

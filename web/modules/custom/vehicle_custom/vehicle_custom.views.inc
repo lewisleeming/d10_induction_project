@@ -3,7 +3,6 @@
 /**
  * Implements hook_views_data().
  */
-
 function vehicle_custom_views_data() {
   $data['vehicle_custom_table'] = [
     'table' => [
@@ -82,6 +81,5 @@ function vehicle_custom_views_data() {
       ],
     ],
   ];
-
   return $data;
 }

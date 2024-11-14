@@ -5,3 +5,12 @@ services:
   logger.channel.vehicle_custom:
     parent: logger.channel_base
     arguments: ['vehicle_custom']
+
+  vehicle_custom.route_subscriber:
+    class: Drupal\vehicle_custom\Routing\AutocompleteRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  vehicle_custom.autocomplete_matcher:
+    class: Drupal\vehicle_custom\EntityAutocompleteMatcher
+    arguments: ['@plugin.manager.entity_reference_selection']

@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Entity\EntityForm;
+
 /**
  * @file
  * Primary module hooks for vehicle_custom module.
@@ -11,4 +13,36 @@ function vehicle_custom_preprocess_node(&$variables) {
   $vehicle_title = $vehicle_lookup_service->getNodeTitle(3);
   // Add vehicle title to template variables.
   $variables['vehicle_title'] = $vehicle_title;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function vehicle_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  //var_dump($form_id);
+  if ($form_id == 'node_car_form' || $form_id == 'node_car_edit_form') {
+    $form_object = $form_state->getFormObject();
+    $published_text = '';
+    $entity = $form_object->getEntity();
+    if ($entity->isPublished()) {
+      $published_text = 'Published';
+    }
+    else {
+      $published_text = 'NOT Published';
+    }
+
+    $form['field_published']["widget"]["#default_value"] = $published_text;
+    $form['published_status'] = [
+      '#theme' => 'published_status',
+      '#attributes' => ['style' => 'background-color:powderblue;'],
+      '#markup' => 'somethign ' . $published_text,
+      '#weight' => -10,
+    ];
+
+    $form['published_text'] = [
+      '#type' => 'textarea',
+      '#title' => t('Published/NotPublished'),
+      '#default_value' => $published_text,
+    ];
+  }
 }
