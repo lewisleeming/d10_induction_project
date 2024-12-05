@@ -1,5 +1,5 @@
 name: vehicles
-type: drupal
+type: drupal8
 docroot: web
 php_version: "8.2"
 webserver_type: nginx-fpm

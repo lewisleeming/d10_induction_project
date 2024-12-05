@@ -41,7 +41,5 @@ function vehicle_custom_schema() {
     ],
     'primary key' => ['custom_id'],
   ];
-
-
   return $schema;
 }
